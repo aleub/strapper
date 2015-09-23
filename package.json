@@ -28,7 +28,6 @@
     "imagemin": "*",
     "jsx-loader": "*",
     "leaflet": "^0.7.5",
-    "react": "^0.14.0-rc1",
     "react-hot-loader": "^1.3.0",
     "react-leaflet": "^0.8.0-rc.1",
     "sass": "*",
