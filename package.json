@@ -2,6 +2,8 @@
   "name": "strapper",
   "version": "0.0.1",
   "description": "Strava Multpiple Ride Mapper",
+  "repository": "https://github.com/leubnerandre/strapper.git",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,13 +12,15 @@
   "license": "ISC",
   "dependencies": {
     "connect": "*",
+    "events": "^1.0.2",
     "express": "*",
+    "keymirror": "^0.1.1",
     "node-rest-client": "*",
     "react": "0.14.0-rc1",
     "react-dom": "^0.14.0-rc1",
     "react-router": "1.0.0-rc1",
     "rethinkdb": "^1.16.2",
-    "underscore": "*",
+    "underscore": "^1.8.3",
     "webpack": "*"
   },
   "devDependencies": {
@@ -24,6 +28,7 @@
     "babel-loader": "*",
     "css-loader": "*",
     "file-loader": "^0.8.4",
+    "flux": "^2.1.1",
     "image-webpack-loader": "*",
     "imagemin": "*",
     "jsx-loader": "*",
