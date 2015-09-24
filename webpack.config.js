@@ -17,10 +17,7 @@ module.exports = {
         extensions: ['', '.jsx', '.web.coffee', '.web.js', '.coffee', '.js']
     },
     context: __dirname + '/app',
-    entry: {
-        javascript: './app.js',
-        html: './index.html'
-    },
+    entry: './app.js',
     output: {
         path: __dirname + '/dist',
         filename: 'bundle.js'

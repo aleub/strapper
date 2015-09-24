@@ -13,7 +13,7 @@ class Livemap extends React.Component {
     }
 
     componentDidMount() {
-        FileStore.on('change', () => {
+        this.props.FileStore.on('change', () => {
             this.forceUpdate();
         });
     }
@@ -30,12 +30,12 @@ class Livemap extends React.Component {
     }
 
     render() {
-        const pols = FileStore.getTracks().map((track, key) => {
+        const pols = this.props.FileStore.getTracks().map((track, key) => {
             return <Polyline key={key} color="red" positions={track} />;
         });
 
         return (<div>
-            <Map style={{width: '70%', margin: '0 auto', height: '400px'}} center={FileStore.getCenter()} zoom={12}>
+            <Map style={{width: '70%', margin: '0 auto', height: '400px'}} center={this.props.FileStore.getCenter()} zoom={12}>
                 <TileLayer url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 {pols}
             </Map>
@@ -43,6 +43,10 @@ class Livemap extends React.Component {
         </div>);
     }
 }
+
+Livemap.propTypes = {
+    FileStore: React.PropTypes.instanceOf(FileStore)
+};
 
 export default Livemap;
 

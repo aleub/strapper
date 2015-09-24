@@ -3,21 +3,21 @@ import {EventEmitter} from 'events';
 import {ActionTypes} from '../constants/StrapperConstants';
 import _ from 'underscore';
 
+let _tracks = [];
+let _center = [51, 17];
+
 class FileStore extends EventEmitter {
     constructor() {
         super();
-
         this.dispatchToken = StrapperDispatcher.register(this.handleDispatch.bind(this));
-        this._tracks = [];
-        this._center = [51, 17];
     }
 
     getTracks() {
-        return this._tracks;
+        return _tracks;
     }
 
     getCenter() {
-        return this._center;
+        return _center;
     }
 
     emit(...args) {
@@ -45,8 +45,8 @@ class FileStore extends EventEmitter {
             ]);
         });
 
-        this._tracks.push(results);
-        this._center = results[0];
+        _tracks.push(results);
+        _center = results[0];
         this.emit('change');
     }
 
@@ -64,4 +64,4 @@ class FileStore extends EventEmitter {
     }
 }
 
-export default new FileStore();
+export default FileStore;

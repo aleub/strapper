@@ -4,7 +4,11 @@ import Livemap from './livemap';
 
 import 'leaflet/dist/leaflet.css';
 
+import FileStore from './stores/FileStore';
+
+const fileStore = new FileStore();
+
 ReactDom.render(
-    <Livemap />,
+    <Livemap FileStore={fileStore} />,
     document.getElementById('mymap')
 );
