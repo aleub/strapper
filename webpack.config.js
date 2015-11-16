@@ -1,4 +1,5 @@
 module.exports = {
+    devtool: 'inline-source-map',
     module: {
         loaders: [
             {test: /\.jsx$/, loaders: ['react-hot', 'babel-loader'], exclude: /(node_modules|bower_components|dist)/},
@@ -11,6 +12,16 @@ module.exports = {
                     'file?hash=sha512&digest=hex&name=[hash].[ext]',
                     'image?bypassOnDebug&optimizationLevel=7&interlaced=false'
                 ]}
+        ],
+        preLoaders: [
+            {test: /\.jsx$/, loaders: ['react-hot', 'babel'], exclude: /(app\/|node_modules|dist)/},
+            {test: /\.js$/, loader: 'babel', exclude: /(app\/|node_modules|dist)/},
+            {
+                test: /(\.js|\.jsx)$/,
+                include: /(app\/)/,
+                exclude: /app\/__tests__\//,
+                loader: 'isparta'
+            }
         ]
     },
     resolve: {
